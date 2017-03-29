@@ -4,23 +4,22 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.updateText = this.updateText.bind(this);
-    this.state = {
-      repeat: ""
-    }
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = { text: "" };
   }
 
-  updateText(event){
+  handleChange(e) {
     this.setState({
-      repeat: event.target.value
-    });
+      text: e.target.value
+    })
   }
 
   render() {
     return (
       <div>
         <h1>Un repetidor</h1>
-        <input type="text" placeholder="Empieza a escribir algo" value={this.state.repeat} onChange={this.updateText} />
+        <input type="text" placeholder="Empieza a escribir algo" onChange={this.handleChange} value={this.state.text} />
         <p className="repeater">{this.state.repeat}</p>
       </div>
     );
